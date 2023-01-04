@@ -45,6 +45,8 @@ class Movies extends Component {
                     <div key={movie.id} class="w-[500px] mx-auto flex border">
                         <img src={secur_url + "/" + size + movie.poster_path} alt="" width="200"/>
                         <h1>{movie.title}</h1>
+
+                        <a href="#">Détails</a>
                     </div>
                 ))}
             </div>

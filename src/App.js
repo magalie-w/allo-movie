@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Movies from './Movies.js';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -10,15 +10,16 @@ function App() {
           <h1>AlloMovie</h1>
         </div>
 
-        <div className="flex justify-around w-[200px]">
-          <h2>Home</h2>
-          <h2>Favoris</h2>
+        <div className="flex justify-around">
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/favoris">Favoris</Link></li>
+          </ul>
+
         </div>
       </div>
 
-    <div>
-      <Movies />
-    </div>
+      <Outlet />
     </div>
   );
 }
