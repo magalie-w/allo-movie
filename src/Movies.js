@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Movies extends Component {
 
@@ -43,10 +44,20 @@ class Movies extends Component {
             <div class="flex flex-wrap">
                 {this.state.movies.map(movie => (
                     <div key={movie.id} class="w-[500px] mx-auto flex border">
-                        <img src={secur_url + "/" + size + movie.poster_path} alt="" width="200"/>
-                        <h1>{movie.title}</h1>
+                        <div>
+                            <img src={secur_url + "/" + size + movie.poster_path} alt="" width="200"/>
+                        </div>
 
-                        <a href="#">Détails</a>
+                        <div class="mx-auto space-y-5">
+                            <h1>{(movie.title.substring(0, 30))}..</h1>
+
+                            <p>{movie.release_date}</p>
+
+                            <div>
+                                <Link to={"/detail/" + movie.id} className="border rounded py-3 px-5 bg-yellow-300">Détail</Link>
+                            </div>
+                        </div>
+
                     </div>
                 ))}
             </div>
