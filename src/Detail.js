@@ -7,7 +7,7 @@ class Detail extends Component {
     }
 
     render() {
-        return <h1>Ggg</h1>
+        return <h1>Test</h1>
     }
 }
 
