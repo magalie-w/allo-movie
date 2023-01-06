@@ -18,8 +18,10 @@ class Movies extends Component {
 
     componentDidMount() {
 
-        axios.get("https://api.themoviedb.org/3/discover/movie?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate").then(response => this.setState({movies: response.data[0]}));
-        // API des films
+        // API des films avec axios
+        axios.get("https://api.themoviedb.org/3/discover/movie?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate").then(response => this.setState({movies: response.data.results}));
+        
+        // API des films avec fetch
         // fetch("https://api.themoviedb.org/3/discover/movie?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate")
         // .then(res => res.json())
         // .then(

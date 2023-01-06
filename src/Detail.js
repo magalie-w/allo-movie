@@ -11,7 +11,7 @@ class Detail extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://api.themoviedb.org/3/movie/{movie_id}?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR').then(response => this.setState({movie: response.data[0]}));
+        axios.get('https://api.themoviedb.org/3/movie/{movie_id}?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR').then(response => this.setState({movie: response.data.results}));
     }
 
     render() {
