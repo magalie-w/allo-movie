@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import Movies from './Movies';
 import Detail from './Detail';
 
@@ -25,3 +25,12 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export function withRouter(Component) {
+  return (props) => {
+    let params = useParams();
+    let navigate = useNavigate();
+
+    return <Component {...props} Router={{ params, navigate }} />
+  }
+}
