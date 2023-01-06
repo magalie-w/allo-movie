@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import { withRouter } from "./index";
 
 class Detail extends Component {
@@ -11,11 +12,17 @@ class Detail extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://api.themoviedb.org/3/movie/{movie_id}?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR').then(response => this.setState({movie: response.data.results}));
+        axios.get(`https://api.themoviedb.org/3/movie/${this.props.router.params.id}?api_key=a4872679cc543a16475400119b475fb6&language=fr-FR`).then(response => this.setState({movie: response.data}));
+        
     }
 
     render() {
-        return <h1>Ggg</h1>
+        return (
+            <div>
+                <Link to="/">Home</Link>
+                <h1>{this.state.movie.title}</h1>
+            </div>
+        )
     }
 }
 

@@ -31,6 +31,6 @@ export function withRouter(Component) {
     let params = useParams();
     let navigate = useNavigate();
 
-    return <Component {...props} Router={{ params, navigate }} />
+    return <Component {...props} router={{ params, navigate }} />
   }
 }

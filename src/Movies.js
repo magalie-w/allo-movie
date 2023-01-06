@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Detail from "./Detail";
 
 class Movies extends Component {
