@@ -14,6 +14,8 @@ class Movies extends Component {
             movies: [],
             secur_url: null,
             size: [],
+            // si localStorage.movie est vide ça crée un tableau vide
+            favory: localStorage.favory ? JSON.parse(localStorage.favory) : [],
         };
     }
 
@@ -42,6 +44,21 @@ class Movies extends Component {
         // )
     }
 
+    favoryAdd(id) {
+        let favory = this.state.favory;
+
+        // Ajoute id au tableau movie
+        if(!favory.includes(id)) {
+            favory.push(id);
+        } else {
+            favory = favory.filter(item => item != id);
+        }
+        // Sauvegarde le nouveau tableau movie avec l'id
+        localStorage.setItem('movie', JSON.stringify(favory));
+        console.log(favory);
+        this.setState({favory: favory});
+    }
+
     render() {
         const secur_url = "https://image.tmdb.org/t/p";
         const size = "original";
@@ -49,7 +66,7 @@ class Movies extends Component {
         if (this.state.isLoaded) {
 
             return (
-                <div className="flex flex-wrap">               
+                <div className="flex flex-wrap">  
                     {this.state.movies.map(movie => (
                         <div key={movie.id} className="w-[500px] mx-auto flex border">
                             <div>
@@ -63,8 +80,17 @@ class Movies extends Component {
 
                                 <div>
                                     <Link to={"/detail/" + movie.id} className="border rounded py-3 px-5 bg-yellow-300">Détail</Link>
-
                                 </div>
+
+                                <div>
+                                    {this.state.favory.includes(movie.id) ? (
+                                        <button onClick={() => this.favoryAdd(movie.id)}>Favoris</button>
+                                        ) : (
+                                            <button onClick={() => this.favoryAdd(movie.id)}>Pas favoris</button>
+                                        )
+                                    }
+                                </div>
+
                             </div>
 
                         </div>
