@@ -54,8 +54,7 @@ class Movies extends Component {
             favory = favory.filter(item => item != id);
         }
         // Sauvegarde le nouveau tableau movie avec l'id
-        localStorage.setItem('movie', JSON.stringify(favory));
-        console.log(favory);
+        localStorage.setItem('favory', JSON.stringify(favory));
         this.setState({favory: favory});
     }
 
@@ -66,36 +65,41 @@ class Movies extends Component {
         if (this.state.isLoaded) {
 
             return (
-                <div className="flex flex-wrap">  
-                    {this.state.movies.map(movie => (
-                        <div key={movie.id} className="w-[500px] mx-auto flex border">
-                            <div>
-                                <img src={secur_url + "/" + size + movie.poster_path} alt="" width="200"/>
-                            </div>
+                <div>
+                    <h1 className="text-xl">Les films</h1>
 
-                            <div className="mx-auto space-y-5">
-                                <h1>{(movie.title.substring(0, 30))}..</h1>
-
-                                <p>{movie.release_date}</p>
-
+                    <div className="flex flex-wrap">
+                        {this.state.movies.map(movie => (
+                            <div key={movie.id} className="w-[500px] mx-auto flex border">
                                 <div>
-                                    <Link to={"/detail/" + movie.id} className="border rounded py-3 px-5 bg-yellow-300">Détail</Link>
+                                    <img src={secur_url + "/" + size + movie.poster_path} alt="" width="200"/>
                                 </div>
 
-                                <div>
-                                    {this.state.favory.includes(movie.id) ? (
-                                        <button onClick={() => this.favoryAdd(movie.id)}>Favoris</button>
-                                        ) : (
-                                            <button onClick={() => this.favoryAdd(movie.id)}>Pas favoris</button>
-                                        )
-                                    }
+                                <div className="mx-auto space-y-5">
+                                    <h2>{(movie.title.substring(0, 30))}..</h2>
+
+                                    <p>{movie.release_date}</p>
+
+                                    <div>
+                                        <Link to={"/detail/" + movie.id} className="border rounded py-3 px-5 bg-yellow-300">Détail</Link>
+                                    </div>
+
+                                    <div>
+                                        {this.state.favory.includes(movie.id) ? (
+                                            <button onClick={() => this.favoryAdd(movie.id)}>Favoris</button>
+                                            ) : (
+                                                <button onClick={() => this.favoryAdd(movie.id)}>Pas favoris</button>
+                                            )
+                                        }
+                                    </div>
+
                                 </div>
 
                             </div>
+                        ))}
+                    </div>
+                </div> 
 
-                        </div>
-                    ))}
-                </div>
             )
         } else {
             return (

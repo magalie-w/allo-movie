@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import Movies from './Movies';
 import Detail from './Detail';
+import Favory from './Favory';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
         <Route path="/" element={<App />}>
           <Route index element={<Movies />} />
           <Route path="detail/:id" element={<Detail />} />
+          <Route path="favory" element={<Favory />} />
         </Route>
       </Routes>
     </BrowserRouter>

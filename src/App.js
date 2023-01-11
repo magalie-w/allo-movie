@@ -13,7 +13,7 @@ function App() {
         <div className="flex justify-around">
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/favoris">Favoris</Link></li>
+            <li><Link to="/favory">Favoris</Link></li>
           </ul>
 
         </div>
