@@ -86,9 +86,12 @@ class Movies extends Component {
 
                                     <div>
                                         {this.state.favory.includes(movie.id) ? (
-                                            <button onClick={() => this.favoryAdd(movie.id)}>Favoris</button>
+                                            <button onClick={() => this.favoryAdd(movie.id)} className="border rounded py-3 px-5 bg-green-500 text-white">Favoris</button>
+
                                             ) : (
-                                                <button onClick={() => this.favoryAdd(movie.id)}>Pas favoris</button>
+                                                
+                                            <button onClick={() => this.favoryAdd(movie.id)} className="border rounded py-3 px-5 bg-red-500 text-white">Ajouter favoris</button>
+                                            
                                             )
                                         }
                                     </div>

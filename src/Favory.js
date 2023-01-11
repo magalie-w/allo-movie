@@ -35,7 +35,7 @@ class Favory extends Component {
                                 <h2>{movie.title.substring(0, 30)}..</h2>
                                 
                                 <p>{movie.release_date}</p>
-                            </div>                            
+                            </div>
                         </div>
                     ))}
                 </div>
