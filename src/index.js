@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-rout
 import Movies from './Movies';
 import Detail from './Detail';
 import Favory from './Favory';
+import Search from './Search';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
           <Route index element={<Movies />} />
           <Route path="detail/:id" element={<Detail />} />
           <Route path="favory" element={<Favory />} />
+          <Route path="search/:query" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>
